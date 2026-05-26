@@ -20,11 +20,11 @@ jobs:
           pip install flet requests
       - name: Build Web App
         run: |
-          # Replace 'quiz' below with your exact repository name if it differs
-          flet build web . --base-href "/quiz/"
+          # Flet CLI uses --base-url for subfolder routing
+          flet build web . --base-url "/quiz/"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'build/web'
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v4a
